@@ -1,0 +1,33 @@
+{
+	"name": "sbt",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update the VARIANT arg to pick a Java version: 11, 15
+			"VARIANT": "11",
+			// Options
+			"INSTALL_SBT": "true",
+		}
+	},
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash"
+			},
+			"sbt": {
+				"path": "/bin/bash",
+				"args": [
+					"sbt"
+				]
+			},
+		},
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"java.home": "/docker-java-home"
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"scala-lang.scala",
+		"scalameta.metals"
+	],
+}
